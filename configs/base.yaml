@@ -1,0 +1,70 @@
+experiment: default
+seed: 0
+
+paths:
+  results_dir: results
+  checkpoints_dir: checkpoints
+  figures_dir: figures
+  tables_dir: tables
+  cache_dir: cache
+
+trainer:
+  max_epochs: 50
+  accelerator: gpu
+  devices: 1
+  precision: 16-mixed
+  accumulate_grad_batches: 1
+  log_every_n_steps: 10
+  deterministic: warn
+  gradient_clip_val: 1.0
+
+dataset:
+  type: hf_retina
+  name: drive
+  hf_name: null
+  image_key: image
+  mask_key: label
+  train_split: train
+  test_split: validation
+  val_ratio: 0.2
+  size: 384
+  sar: false
+  batch_size: 4
+  num_workers: 4
+  aug:
+    scale: [0.8, 1.2]
+    hflip: 0.5
+    vflip: 0.5
+    color_jitter_p: 0.2
+    gauss_noise_p: 0.0
+
+model:
+  name: unet
+
+loss:
+  bce_weight: 1.0
+  dice_weight: 1.0
+  cldice_weight: 0.0
+  boundary_weight: 0.0
+
+optimizer:
+  name: adamw
+  lr: 1e-4
+  weight_decay: 1e-4
+
+scheduler:
+  name: cosine
+
+logging:
+  wandb: false
+  project: seglab
+  entity: null
+  tags: []
+
+artifacts:
+  save_test_preds: true
+  save_figures: true
+  sample_pixels: 200000
+  sample_pixels_per_image: 5000
+  max_qual: 8
+  bf_tol: 1
