@@ -1,0 +1,12 @@
+dataset:
+  type: sl_ssdd
+  name: sl_ssdd
+  root: data/sl_ssdd
+  train_list: data/sl_ssdd/splits/train.txt
+  val_list: data/sl_ssdd/splits/val.txt
+  test_list: data/sl_ssdd/splits/test.txt
+  size: 512
+  sar: true
+  batch_size: 4
+  num_workers: 4
+
