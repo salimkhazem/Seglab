@@ -1,0 +1,13 @@
+dataset:
+  type: hf_retina
+  name: stare
+  hf_name: Zomba/STARE-structured-analysis-of-the-retina
+  image_key: image
+  mask_key: label
+  train_split: train
+  test_split: validation
+  val_ratio: 0.2
+  size: 384
+  sar: false
+  batch_size: 4
+  num_workers: 4
