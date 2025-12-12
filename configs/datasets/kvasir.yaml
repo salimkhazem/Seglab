@@ -1,0 +1,14 @@
+dataset:
+  type: hf_kvasir
+  name: kvasir
+  hf_name: Angelou0516/kvasir-seg
+  image_key: image
+  mask_key: mask
+  train_split: train
+  test_split: test
+  val_ratio: 0.1
+  size: 512
+  sar: false
+  batch_size: 4
+  num_workers: 4
+
