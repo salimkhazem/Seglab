@@ -1,0 +1,30 @@
+model:
+  name: sam_topolora
+  sam_type: vit_b
+  sam_checkpoint: checkpoints/sam_vit_b_01ec64.pth
+  train_mask_decoder: true
+  lora:
+    enabled: true
+    r: 8
+    alpha: 16
+    dropout: 0.0
+    target_keywords: ["mlp", "fc1", "fc2"]
+  adapter:
+    enabled: true
+    hidden_dim: 256
+    kernel_size: 3
+  prompt:
+    learnable: false
+
+loss:
+  bce_weight: 1.0
+  dice_weight: 1.0
+  cldice_weight: 0.5
+  boundary_weight: 0.0
+
+# SAM is heavy; default to smaller batch with accumulation.
+dataset:
+  batch_size: 1
+
+trainer:
+  accumulate_grad_batches: 4
