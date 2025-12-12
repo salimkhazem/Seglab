@@ -1,0 +1,39 @@
+experiment: ablation_topolora
+base_config: configs/base.yaml
+runs:
+  - name: sam_decoder_only
+    dataset: drive
+    model: sam_topolora
+    overrides:
+      model.lora.enabled: false
+      model.adapter.enabled: false
+      loss.cldice_weight: 0.0
+  - name: lora_only
+    dataset: drive
+    model: sam_topolora
+    overrides:
+      model.lora.enabled: true
+      model.adapter.enabled: false
+      loss.cldice_weight: 0.0
+  - name: topo_only
+    dataset: drive
+    model: sam_topolora
+    overrides:
+      model.lora.enabled: false
+      model.adapter.enabled: false
+      loss.cldice_weight: 0.5
+  - name: adapter_only
+    dataset: drive
+    model: sam_topolora
+    overrides:
+      model.lora.enabled: false
+      model.adapter.enabled: true
+      loss.cldice_weight: 0.0
+  - name: full_topolora
+    dataset: drive
+    model: sam_topolora
+    overrides:
+      model.lora.enabled: true
+      model.adapter.enabled: true
+      loss.cldice_weight: 0.5
+
