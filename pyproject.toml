@@ -1,0 +1,38 @@
+[project]
+name = "seglab"
+version = "0.1.0"
+description = "TopoLoRA-SAM: topology-aware PEFT adaptation of SAM for binary semantic segmentation."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "torch>=2.1",
+  "torchvision",
+  "pytorch-lightning>=2.1",
+  "segmentation-models-pytorch>=0.3.3",
+  "transformers>=4.38",
+  "datasets>=2.18",
+  "albumentations>=1.4",
+  "opencv-python-headless>=4.8",
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "scipy>=1.10",
+  "scikit-image>=0.22",
+  "scikit-learn>=1.3",
+  "matplotlib>=3.8",
+  "tqdm",
+  "omegaconf>=2.3",
+  "pyyaml",
+  "requests",
+  "segment-anything @ git+https://github.com/facebookresearch/segment-anything.git",
+]
+
+[project.optional-dependencies]
+wandb = ["wandb>=0.16"]
+d2 = ["detectron2>=0.6"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
