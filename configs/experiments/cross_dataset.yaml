@@ -1,0 +1,16 @@
+experiment: cross_dataset
+base_config: configs/base.yaml
+runs:
+  - name: sam_full
+    dataset: drive
+    model: sam_topolora
+    overrides:
+      loss.cldice_weight: 0.5
+    eval_datasets: [stare, chase]
+  - name: sam_no_topo
+    dataset: drive
+    model: sam_topolora
+    overrides:
+      loss.cldice_weight: 0.0
+    eval_datasets: [stare, chase]
+
