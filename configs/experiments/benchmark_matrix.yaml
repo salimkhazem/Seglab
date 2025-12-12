@@ -1,0 +1,8 @@
+experiment: benchmark_matrix
+base_config: configs/base.yaml
+datasets: [drive, stare, chase, kvasir, sl_ssdd]
+models: [unet, deeplabv3p, segformer, mask2former, sam_topolora]
+seeds: [0, 1, 2]
+overrides:
+  trainer.max_epochs: 50
+
