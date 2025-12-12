@@ -1,0 +1,5 @@
+model:
+  name: mask2former
+  backbone: facebook/mask2former-swin-tiny-ade-semantic
+  pretrained: true
+
