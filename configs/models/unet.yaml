@@ -1,0 +1,5 @@
+model:
+  name: unet
+  encoder: resnet34
+  pretrained: true
+
