@@ -1,5 +1,6 @@
 experiment: cross_dataset
 base_config: configs/base.yaml
+seeds: [0, 1, 2]
 runs:
   - name: sam_full
     dataset: drive
@@ -13,4 +14,3 @@ runs:
     overrides:
       loss.cldice_weight: 0.0
     eval_datasets: [stare, chase]
-
