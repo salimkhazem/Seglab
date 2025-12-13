@@ -6,6 +6,7 @@ __pycache__/
 .env
 
 cache/
+data/
 results/
 checkpoints/
 figures/
@@ -14,3 +15,5 @@ tables/
 benchmark.out
 benchmark.pid
 
+sl_ssdd_seed*.out
+sl_ssdd_seed*.pid
