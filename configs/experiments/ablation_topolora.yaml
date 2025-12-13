@@ -1,5 +1,6 @@
 experiment: ablation_topolora
 base_config: configs/base.yaml
+seeds: [0, 1, 2]
 runs:
   - name: sam_decoder_only
     dataset: drive
@@ -36,4 +37,3 @@ runs:
       model.lora.enabled: true
       model.adapter.enabled: true
       loss.cldice_weight: 0.5
-
