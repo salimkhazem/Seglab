@@ -27,7 +27,7 @@ uv pip install ".[d2]"       # detectron2 (Mask2Former baseline)
 Put your HF token in `.env` (recommended) as `HF_TOKEN=...` or `HUGGINGFACE_HUB_TOKEN=...`, then download once into the HF cache:
 
 ```bash
-export HF_HUB_DISABLE_XET=1   # helps avoid some 429 issues
+export HF_HUB_DISABLE_XET=1
 PYTHONNOUSERSITE=1 PYTHONPATH=. .venv/bin/python scripts/download_hf_datasets.py
 ```
 
