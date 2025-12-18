@@ -1,4 +1,4 @@
-# SegLab — TopoLoRA‑SAM Research Codebase
+# SegLab — TopoLoRA‑SAM Research
 
 This repository implements an end‑to‑end, reproducible benchmark for binary semantic segmentation across thin structures (retinal vessels), natural medical domains (polyps), and noisy SAR sea/land segmentation. The main contribution is **TopoLoRA‑SAM**: topology‑aware, parameter‑efficient adaptation of SAM using LoRA + lightweight conv adapters + clDice regularization.
 
@@ -32,6 +32,7 @@ PYTHONNOUSERSITE=1 PYTHONPATH=. .venv/bin/python scripts/download_hf_datasets.py
 ```
 
 Datasets used:
+
 - DRIVE: `Zomba/DRIVE-digital-retinal-images-for-vessel-extraction`
 - STARE: `Zomba/STARE-structured-analysis-of-the-retina`
 - CHASE_DB1: `Zomba/CHASE_DB1-retinal-dataset`
@@ -84,8 +85,6 @@ PYTHONNOUSERSITE=1 HF_HUB_DISABLE_XET=1 PYTHONPATH=. \
   .venv/bin/python -m seglab.eval --ckpt checkpoints/default/drive/unet/seed0/*.ckpt --config configs/base.yaml --dataset drive --model unet
 ```
 
-## Reproduce paper
-
 ### Benchmark matrix (5 datasets × 5 models × 3 seeds)
 
 ```bash
@@ -108,40 +107,6 @@ PYTHONNOUSERSITE=1 HF_HUB_DISABLE_XET=1 PYTHONPATH=. \
   .venv/bin/python -m seglab.sweep --sweep configs/experiments/ablation_topolora.yaml
 PYTHONNOUSERSITE=1 HF_HUB_DISABLE_XET=1 PYTHONPATH=. \
   .venv/bin/python -m seglab.sweep --sweep configs/experiments/cross_dataset.yaml
-```
-
-### Export tables
-
-```bash
-.venv/bin/python scripts/export_tables.py
-```
-
-Tables are written to `tables/benchmark_mean_std.csv`, `tables/benchmark_formatted.csv`, and TeX variants.
-
-### Figures
-
-Per‑run qualitative grids, PR curves and calibration diagrams can be generated
-from predictions and saved metrics. A minimal helper:
-
-```bash
-bash scripts/make_all_figures.sh
-```
-
-## Outputs
-
-At runtime, the following folders are created:
-
-```
-results/<experiment>/<dataset>/<model>/seed<k>/<timestamp>/
-  config.yaml
-  env.json
-  trainable_params.txt
-  best_ckpt.txt
-  test_metrics.json
-  logs/metrics.csv
-checkpoints/<experiment>/<dataset>/<model>/seed<k>/*.ckpt
-figures/
-tables/
 ```
 
 ## Notes
