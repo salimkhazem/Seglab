@@ -2,6 +2,9 @@
 
 This repository implements an end‑to‑end, reproducible benchmark for binary semantic segmentation across thin structures (retinal vessels), natural medical domains (polyps), and noisy SAR sea/land segmentation. The main contribution is **TopoLoRA‑SAM**: topology‑aware, parameter‑efficient adaptation of SAM using LoRA + lightweight conv adapters + clDice regularization.
 
+<img width="5886" height="1686" alt="TopoLora_architecture_final" src="https://github.com/user-attachments/assets/91f3c268-79d0-411c-8ebb-f5fffddcec27" />
+
+
 ## Setup
 
 Recommended: create a fresh environment and install with **uv**.
